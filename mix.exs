@@ -4,10 +4,13 @@ defmodule CredoFormatter.MixProject do
   def project do
     [
       app: :credo_formatter,
-      version: "0.1.0",
+      version: "0.0.1",
       elixir: "~> 1.13",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      description: description(),
+      package: package(),
+      source_url: "https://github.com/fabiankrol/credo_formatter"
     ]
   end
 
@@ -19,7 +22,19 @@ defmodule CredoFormatter.MixProject do
 
   defp deps do
     [
-      {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
+    ]
+  end
+
+  defp description() do
+    "Credo checks based formatter"
+  end
+
+  defp package() do
+    [
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/fabiankrol/credo_formatter"}
     ]
   end
 end
